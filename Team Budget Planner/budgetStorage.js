@@ -3,35 +3,21 @@ var projectObj =[];
 
 function retrieve() {
     var obj = JSON.parse(sessionStorage.getItem("budget"));
- //   var table=document.getElementById("budgetDetails")
     var body=document.getElementById("tbody");
- //   var newRow=body.insertRow(body.length);
 
- obj.forEach(function (budgetItem){
+
+    var total = 0;
+    obj.forEach(function (budgetItem){
      var tr ="<tr>"
      tr+="<td>"+ budgetItem.clientName+"</td>"
      tr+="<td>"+ budgetItem.projectName+"</td>"
      tr+="<td>"+ budgetItem.budget+"</td>"
      body.innerHTML+=tr;
-
-     var x = budgetItem.clientName;
-     console.log(x);
+    total =+total + +budgetItem.budget;
+     
 });
-
+    document.getElementById("totalBudget").value=total;
  
-
-   // var x=budgetItem.projectName;
-    //console.log(x);
-    
- 
-}
-
-function test(){
-    var obj = JSON.parse(sessionStorage.getItem("budget"));
-    obj.forEach(function (item){
-    var x = item.clientName;
-    console.log(x);
-    });
 }
 
 
