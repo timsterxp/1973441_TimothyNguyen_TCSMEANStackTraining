@@ -13,20 +13,24 @@ function retrieve() {
      tr+="<td>"+ budgetItem.projectName+"</td>"
      tr+="<td>"+ budgetItem.budget+"</td>"
      body.innerHTML+=tr;
-    total =+total + +budgetItem.budget;
+     total =+total + +budgetItem.budget;
      
 });
     document.getElementById("totalBudget").value=total;
  
 }
 
-
 function save(){
-  
+    var obj = JSON.parse(sessionStorage.getItem("budget"));
+    obj.forEach(function (previousItems){
+    projectObj.push(previousItems);
+
+    }); 
     var data = readFormData();
     projectObj.push(data);      
     resetData();
     sessionStorage.setItem("budget",JSON.stringify(projectObj));
+ 
 }
 
 function readFormData() {
