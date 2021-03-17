@@ -1,15 +1,51 @@
-.row{
-padding:10px;
+.row {
+    padding: 10px;
 }
 
-.col{
-    width:300px;
+.links,
+h1 {
+    text-align: center;
 }
 
-.links,h1{
-    text-align:center;
+.moveButton {
+    background: transparent;
+    border: none;
+    font-size: 0px;
 }
 
-body{
-    background-color:skyblue;
+body {
+    background-color: #121212;
+}
+
+.text {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.text2 {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.images {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.top {
+    padding-bottom: 5px;
+    background-color: #121212;
+}
+
+.myBlogs {
+    padding: 20px;
+    border: 2px solid #bb86fc;
+}
+
+.disclaimer {
+    font-size: 12px;
+}
+
+.spacing {
+    padding: 5px;
 }

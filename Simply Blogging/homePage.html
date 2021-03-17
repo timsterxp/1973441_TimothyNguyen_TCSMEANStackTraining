@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,49 +8,57 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src = "blogFunctions.js"></script>
+    <script src="blogFunctions.js"></script>
 </head>
-<body>
-    <h1>Simply Blogging</h1>
-    <div class= "links">
-        <a href="#">Add Blog</a> |
-        <a href="#">Home</a> | 
-        <a href="#">About Us</a> |
-        <a href="#">Contact Us</a> 
+
+<body onload="javascript:loadPreviousBlogs()">
+
+    <div class="top">
+        <h1 class="display-1 text">Simply Blogging</h1>
+        <div class="links">
+            <a href="#" class="btn btn-secondary">Add Blog</a>
+            <a href="#" class="btn btn-secondary">Home</a>
+            <a href="#" class="btn btn-secondary">About Us</a>
+            <a href="#" class="btn btn-secondary">Contact Us</a>
+        </div>
     </div>
 
-    <div class = "container-fluid">
+    <div class="container-fluid">
         <form action="" class="form-group">
-    
+
             <div class="row">
-                <label class="col-2">Title</label>
-                <input type="text" name="title" class="col-2">
-            
+                <label class="col-2 text">Title</label>
+                <input type="text" id="title" name="title" class="col-2">
+
             </div>
             <div class="row">
-           
-                <label class="col-2">Description</label>
-                <textarea id="description" class= "col-2"></textarea>
-               
+
+                <label class="col-2 text">Description</label>
+                <textarea id="description" class="col-2"></textarea>
+
             </div>
 
             <div class="row">
-                <label class="col-2">Upload Image</label>
-                <input type="file" value="submit" width:70px class="btn btn-primary btn-sm col-2"/>
-            
+                <label class="col-2 text">Upload Image</br> </label>
+                <input type="file" id="imageId" width:70px class="btn btn-primary btn-sm col-2" />
+
             </div>
+            <p class="disclaimer text">(Images must be in the same directory)</p>
             <div class="row">
-                <input type="submit" class = "btn btn-secondary col-2" onclick=addBlog();>
+                <input type="button" class="col-2 moveButton">
+                <input type="submit" class="btn btn-secondary col-2 buttonSub" onclick="addBlog()" ;>
             </div>
         </form>
     </div>
 
-    <div class = "container-fluid">
-        <form action="" class="form-group">
-            <div class = "row" id = "insertHere">
+    <div class="container-fluid">
 
-            </div>
-        </form>
+
+        <div class="row" id="insertHere">
+
+        </div>
+
     </div>
 </body>
+
 </html>
