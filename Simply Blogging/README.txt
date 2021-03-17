@@ -1,0 +1,1 @@
+Pictures are provided for your convenience but is not necessary. However, please ensure that new images are placed into the same directory as homePage.html for pictures to load/save properly.
