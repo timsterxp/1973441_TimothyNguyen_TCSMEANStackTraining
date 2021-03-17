@@ -1,6 +1,11 @@
 var allBlogs = [];
-//var count = 0;
-
+var count = 0;
+/*
+    Timothy Nguyen
+    Simply Blogging
+    TCS Simplilearn
+    03/17/2021
+*/
 function addBlog() {
     var title = document.getElementById("title").value;
     var desc = document.getElementById("description").value;
@@ -9,7 +14,6 @@ function addBlog() {
     count++;
     localStorage.setItem("numBlogs", count);
     storeObject(title, desc, imageInfo);
-
 
     resetData();
 
@@ -38,7 +42,7 @@ function loadPreviousBlogs() {
             gridLayout.innerHTML += "</div> <div class= 'row' >"
         }
     });
-    //count = JSON.parse(localStorage.getItem("numBlogs"));
+    count = JSON.parse(localStorage.getItem("numBlogs"));
 
 }
 
