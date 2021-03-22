@@ -1,5 +1,15 @@
+/*
+<!--
+    Timothy Nguyen
+    Cart Management
+    TCS Simplilearn 1973441
+    03/22/2021
+-->
+*/
+
 let cartSize=0;
 let cartTotalPrice=0;
+//Object Class For Items In Cart
 class  cartItem{
     name:string;
     price:number;
@@ -11,12 +21,12 @@ class  cartItem{
     }
 
 }
-
+//Populate Table Based On Current Array Saved in Local Storage
 function populateTable(){
     let currentArray = JSON.parse(localStorage.getItem("shoppingCartItems"));
     let tableContents = document.getElementById("insertCart");
     for (let item of currentArray){
-        tableContents.innerHTML+="<tr><th scope='row'>"+item.name+"</th><th>"+item.price+"</th></tr>";
+        tableContents.innerHTML+="<tr><th scope='row'>"+item.name+"</th><th>$"+item.price+"</th></tr>";
         // <th scope="row">itemName</tr>
         cartTotalPrice= +cartTotalPrice+ +item.price;
     }
@@ -27,12 +37,13 @@ function populateTable(){
    
 
 }
+//Increase cart size by 1 and update text
 function updateCartSize(){
     cartSize++;
     let cartTotal = document.getElementById("cartSize");
     cartTotal.innerHTML='Cart Size: '+ cartSize;
 }
-
+//On Page Refresh, Check LocalStorage
 function checkAdded(){
     let prevArray = JSON.parse(localStorage.getItem("shoppingCartItems"));
     if (prevArray==null){
@@ -87,7 +98,7 @@ function checkAdded(){
 }
 
 let shoppingCart = new Array<cartItem>();
-
+//Add CartItem to Array
 function addObject(itemName:string,itemPrice:number,itemId:number){
     let newItem=new cartItem(itemName,itemPrice,itemId);
     console.log(newItem);
@@ -95,7 +106,7 @@ function addObject(itemName:string,itemPrice:number,itemId:number){
     localStorage.setItem("shoppingCartItems",JSON.stringify(shoppingCart));
     updateCartSize();
 }
-
+//Function One to Six for Six Buttons. Could be refractored/cleaned up into one for-loop if using ID as keys for buttons on click
 function addItemOne(){
     let itemName = document.getElementById("itemOne").textContent;
     let itemPrice=parseInt(document.getElementById("itemOnePrice").textContent.replace('$',""));

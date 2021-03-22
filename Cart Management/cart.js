@@ -1,6 +1,15 @@
+/*
+<!--
+    Timothy Nguyen
+    Cart Management
+    TCS Simplilearn 1973441
+    03/22/2021
+-->
+*/
 var cartSize = 0;
 var cartTotalPrice = 0;
-var cartItem = /** @class */ (function() {
+//Object Class For Items In Cart
+var cartItem = /** @class */ (function () {
     function cartItem(name, price, id) {
         this.id = id;
         this.name = name;
@@ -8,13 +17,13 @@ var cartItem = /** @class */ (function() {
     }
     return cartItem;
 }());
-
+//Populate Table Based On Current Array Saved in Local Storage
 function populateTable() {
     var currentArray = JSON.parse(localStorage.getItem("shoppingCartItems"));
     var tableContents = document.getElementById("insertCart");
     for (var _i = 0, currentArray_1 = currentArray; _i < currentArray_1.length; _i++) {
         var item = currentArray_1[_i];
-        tableContents.innerHTML += "<tr><th scope='row'>" + item.name + "</th><th>" + item.price + "</th></tr>";
+        tableContents.innerHTML += "<tr><th scope='row'>" + item.name + "</th><th>$" + item.price + "</th></tr>";
         // <th scope="row">itemName</tr>
         cartTotalPrice = +cartTotalPrice + +item.price;
     }
@@ -22,18 +31,19 @@ function populateTable() {
     cartTotalPrice.toLocaleString();
     subTotal.innerHTML = "Your Total Price Is: $" + cartTotalPrice;
 }
-
+//Increase cart size by 1 and update text
 function updateCartSize() {
     cartSize++;
     var cartTotal = document.getElementById("cartSize");
     cartTotal.innerHTML = 'Cart Size: ' + cartSize;
 }
-
+//On Page Refresh, Check LocalStorage
 function checkAdded() {
     var prevArray = JSON.parse(localStorage.getItem("shoppingCartItems"));
     if (prevArray == null) {
         return;
-    } else {
+    }
+    else {
         shoppingCart = prevArray;
     }
     for (var _i = 0, prevArray_1 = prevArray; _i < prevArray_1.length; _i++) {
@@ -77,7 +87,7 @@ function checkAdded() {
     }
 }
 var shoppingCart = new Array();
-
+//Add CartItem to Array
 function addObject(itemName, itemPrice, itemId) {
     var newItem = new cartItem(itemName, itemPrice, itemId);
     console.log(newItem);
@@ -85,42 +95,37 @@ function addObject(itemName, itemPrice, itemId) {
     localStorage.setItem("shoppingCartItems", JSON.stringify(shoppingCart));
     updateCartSize();
 }
-
+//Function One to Six for Six Buttons. Could be refractored/cleaned up into one for-loop if using ID as keys for buttons on click
 function addItemOne() {
     var itemName = document.getElementById("itemOne").textContent;
     var itemPrice = parseInt(document.getElementById("itemOnePrice").textContent.replace('$', ""));
     console.log("Added" + itemName + " " + itemPrice);
     addObject(itemName, itemPrice, 1);
 }
-
 function addItemTwo() {
     var itemName = document.getElementById("itemTwo").textContent;
     var itemPrice = parseInt(document.getElementById("itemTwoPrice").textContent.replace('$', ""));
     console.log("Added" + itemName + " ");
     addObject(itemName, itemPrice, 2);
 }
-
 function addItemThree() {
     var itemName = document.getElementById("itemThree").textContent;
     var itemPrice = parseInt(document.getElementById("itemThreePrice").textContent.replace('$', ""));
     console.log("Added" + itemName + " ");
     addObject(itemName, itemPrice, 3);
 }
-
 function addItemFour() {
     var itemName = document.getElementById("itemFour").textContent;
     var itemPrice = parseInt(document.getElementById("itemFourPrice").textContent.replace('$', ""));
     console.log("Added" + itemName + " ");
     addObject(itemName, itemPrice, 4);
 }
-
 function addItemFive() {
     var itemName = document.getElementById("itemFive").textContent;
     var itemPrice = parseInt(document.getElementById("itemFivePrice").textContent.replace('$', ""));
     console.log("Added" + itemName + " ");
     addObject(itemName, itemPrice, 5);
 }
-
 function addItemSix() {
     var itemName = document.getElementById("itemSix").textContent;
     var itemPrice = parseInt(document.getElementById("itemSixPrice").textContent.replace('$', ""));
