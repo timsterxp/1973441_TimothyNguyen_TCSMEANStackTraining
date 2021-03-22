@@ -13,7 +13,7 @@
 
 </head>
 
-<body style="background-color:#121212;">
+<body style="background-color:#121212;" onload="javascript:checkAdded()">
     <h1 style="text-align:center;color:rgba(255,255,255,0.9);">Shopping Page</h1>
 
 
@@ -35,7 +35,7 @@
                             <div class="card-body">
                                 <h5 class="card-title" id="itemOne" style="color:rgba(255,255,255,0.5);">Special Laptop</h5>
                                 <p class="card-text" id="itemOnePrice" style=" color:rgba(255,255,255,0.4); ">$19999</p>
-                                <input type="submit " id="itemOneAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick=" addItemOne(); ">
+                                <input type="submit " id="itemOneAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick=" addItemOne(); this.value='Sold Out';this.disabled=true; ">
                             </div>
                         </div>
 
@@ -48,7 +48,7 @@
                             <div class="card-body ">
                                 <h5 class="card-title " id="itemTwo" style="color:rgba(255,255,255,0.5); ">Simplilearn Mug</h5>
                                 <p class="card-text " id="itemTwoPrice" style="color:rgba(255,255,255,0.4); ">$99</p>
-                                <input type="submit " id="itemTwoAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick=" addItemTwo();this.value='Sold Out' ; ">
+                                <input type="submit " id="itemTwoAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick=" addItemTwo();this.value='Sold Out' ;this.disabled=true; ">
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@
                             <div class="card-body ">
                                 <h5 class="card-title " id="itemThree" style="color:rgba(255,255,255,0.5); ">Nvidia RTX 3090</h5>
                                 <p class="card-text " id="itemThreePrice" style="color:rgba(255,255,255,0.4); ">$3990</p>
-                                <input type="submit " id="itemThreeAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick="addItemThree(); this.value='Sold Out' ; ">
+                                <input type="submit " id="itemThreeAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick="addItemThree(); this.value='Sold Out' ; this.disabled=true;">
                             </div>
                         </div>
 
@@ -81,7 +81,7 @@
                             <div class="card-body ">
                                 <h5 class="card-title " id="itemFour" style="color:rgba(255,255,255,0.5); ">Desk</h5>
                                 <p class="card-text " id="itemFourPrice" style="color:rgba(255,255,255,0.4); ">$549</p>
-                                <input type="submit " id="itemFourAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick="addItemFour();this.value='Sold Out' ; ">
+                                <input type="submit " id="itemFourAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick="addItemFour();this.value='Sold Out' ; this.disabled=true;">
                             </div>
                         </div>
 
@@ -94,7 +94,7 @@
                             <div class="card-body ">
                                 <h5 class="card-title " id="itemFive" style="color:rgba(255,255,255,0.5); ">Speakers</h5>
                                 <p class="card-text " id="itemFivePrice" style=" color:rgba(255,255,255,0.4); ">$40</p>
-                                <input type="submit " id="itemFiveAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick="addItemFive();this.value='Sold Out' ; ">
+                                <input type="submit " id="itemFiveAdd" class="btn btn-primary " style="float:right; " value="Add to Cart " onclick="addItemFive();this.value='Sold Out' ; this.disabled=true;">
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@
                             <div class="card-body ">
                                 <h5 class="card-title " id="itemSix" style="color:rgba(255,255,255,0.5); ">Mask N95(Pack of 10)</h5>
                                 <p class="card-text " id="itemSixPrice" style="color:rgba(255,255,255,0.4); ">$59</p>
-                                <input type="submit " id="itemSixAdd" class=" btn btn-primary " style="float:right; " value="Add to Cart " onclick="addItemSix();this.value='Sold Out' ; ">
+                                <input type="submit " id="itemSixAdd" class=" btn btn-primary " style="float:right; " value="Add to Cart " onclick="addItemSix();this.value='Sold Out';this.disabled=true; ">
                             </div>
                         </div>
 

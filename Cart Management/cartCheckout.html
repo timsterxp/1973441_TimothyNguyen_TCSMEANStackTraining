@@ -8,10 +8,28 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
+    <script src="cart.js"></script>
 </head>
 
-<body>
-        
+<body style="background-color:#121212;" onload="javascript:populateTable()">
+    <h1 style="text-align:center;color:rgba(255,255,255,0.9);">Shopping Cart Checkout</h1>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">Item Price</th>
+            </tr>
+        </thead>
+        <tbody id="insertCart">
+
+
+        </tbody>
+    </table>
+    </br>
+    </br>
+    <h4 style="color:rgba(255,255,255,0.8);" id="subtotal">
+        Your Total Is:
+    </h4>
 </body>
 
 </html>
