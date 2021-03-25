@@ -44,3 +44,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#extra pics
+loginPage.png
+signUpPage.png
+portfolioPage.png
