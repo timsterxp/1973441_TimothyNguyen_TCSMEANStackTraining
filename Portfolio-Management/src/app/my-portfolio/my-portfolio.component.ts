@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-portfolio',
@@ -11,9 +12,11 @@ export class MyPortfolioComponent implements OnInit {
     contactName:new FormControl(),
     phoneNumber:new FormControl()
   });
-  constructor() { }
+  loggedInUser:string="";
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
+    this.pullUserName();
   }
   addToTable(){
     let userToAdd=this.contactDetails.get("contactName").value;
@@ -22,4 +25,15 @@ export class MyPortfolioComponent implements OnInit {
     tableToAdd.innerHTML+="<tr style=color:rgba(255,255,255,0.6);'><th>"+ userToAdd +"</th><th>"+phoneToAdd+"</th></tr>";
     this.contactDetails.reset();
   }
+  goToLogin(){
+    this.router.navigate(["login"]);
+  }
+  pullUserName(){
+    if (localStorage.getItem("userAccount")!=null){
+      let storedAcc = JSON.parse(localStorage.getItem("userAccount"));
+     
+      this.loggedInUser=storedAcc.newUser;
+     
+  }
+}
 }

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
     pass:new  FormControl()
   });
 
-
+  msg:string="";
   constructor(public router:Router) { }
 
   ngOnInit(): void {
@@ -25,15 +25,15 @@ export class LoginComponent implements OnInit {
       let infoToCheck =  this.loginInfo.value;
       
       if (storedAcc.newUser===infoToCheck.user){
-        console.log("Logged In");
+        this.router.navigate(["my-portfolio"]);
       }else {
-        console.log("Wrong information");
+        this.msg="Incorrect Credentials. Please Try Again.";
       }
     }else {
 
     }
     }
- 
+
 
   signUp(){
     this.router.navigate(["signup"]);
