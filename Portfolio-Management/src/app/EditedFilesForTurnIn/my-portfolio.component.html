@@ -1,0 +1,33 @@
+<h2>
+    Portfolio</h2>
+
+<h4 style="color:rgba(255,255,255,0.8);">Welcome {{loggedInUser}}!</h4>
+
+<form action="" class="form-group" [formGroup]="contactDetails" (ngSubmit)="addToTable()">
+    <div class="row">
+        <label class="col2 whiteText">Contact Name</label>
+        <input type="text" class="col-2" formControlName="contactName">
+    </div>
+    <div class="row">
+        <label class="col2 whiteText">Phone Number</label>
+        <input type="text" class="col-2" formControlName="phoneNumber">
+    </div>
+    <br/>
+    <div class="row">
+        <input type="submit" value="Save" class="btn btn-secondary col-2 buttonSub">
+        <input type="reset" class="btn btn-secondary col-2" />
+    </div>
+
+    <br/> <br/>
+    <div class="whiteText">
+        <input type="button" value="Log Out" class="btn btn-primary" (click)="goToLogin()" /> </div>
+</form>
+<br/>
+<br/>
+<br/>
+<div>
+    <table id="insertHere">
+        <th class="whiteText">Contact Name</th>
+        <th class="whiteText">Phone Number</th>
+    </table>
+</div>
