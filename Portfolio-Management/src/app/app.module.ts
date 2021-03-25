@@ -7,6 +7,7 @@ import { MyPortfolioComponent } from './my-portfolio/my-portfolio.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MyAuthGaurd } from './myauthguard';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MyAuthGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MyAuthGaurd } from '../myauthguard';
 
 @Component({
   selector: 'app-my-portfolio',
@@ -13,7 +14,7 @@ export class MyPortfolioComponent implements OnInit {
     phoneNumber:new FormControl()
   });
   loggedInUser:string="";
-  constructor(public router:Router) { }
+  constructor(public router:Router,public authService:MyAuthGaurd) { }
 
   ngOnInit(): void {
     this.pullUserName();
@@ -26,6 +27,7 @@ export class MyPortfolioComponent implements OnInit {
     this.contactDetails.reset();
   }
   goToLogin(){
+    sessionStorage.removeItem("verify");
     this.router.navigate(["login"]);
   }
   pullUserName(){
