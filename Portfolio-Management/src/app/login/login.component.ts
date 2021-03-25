@@ -20,8 +20,20 @@ export class LoginComponent implements OnInit {
   }
 
   checkUser(){
-    this.router.navigate(["my-portfolio"]);
-  }
+    if (localStorage.getItem("userAccount")!=null){
+      let storedAcc = JSON.parse(localStorage.getItem("userAccount"));
+      let infoToCheck =  this.loginInfo.value;
+      
+      if (storedAcc.newUser===infoToCheck.user){
+        console.log("Logged In");
+      }else {
+        console.log("Wrong information");
+      }
+    }else {
+
+    }
+    }
+ 
 
   signUp(){
     this.router.navigate(["signup"]);

@@ -2,10 +2,10 @@
     <h2>Login Page</h2>
     <form [formGroup]="loginInfo" (ngSubmit)="checkUser()">
         <label class="whiteText">Username</label>
-        <input type="text" name="userName" />
+        <input type="text" name="userName" formControlName="user" />
         <br/>
         <label class="whiteText">Password</label>
-        <input type="text" name="pass" />
+        <input type="text" name="pass" formControlName="pass" />
         <br/>
         <input type="submit" name="submit" />
         <input type="reset" name="reset" />

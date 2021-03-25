@@ -1,27 +1,27 @@
 <h2 class="whiteText">Sign Up Page</h2>
 
 
-<form action="" class="form-group">
+<form action="" class="form-group" [formGroup]="newUserAcc" (ngSubmit)="newUser()">
     <div class=row>
 
         <label class="whiteText col-2">First Name</label>
-        <input class="col-2" type="text" /> <br/>
+        <input class="col-2" type="text" formControlName="first" /> <br/>
     </div>
     <div class=row>
         <label class="whiteText col-2">Last Name</label>
-        <input class="col-2" type="text" /> <br/>
+        <input class="col-2" type="text" formControlName="last" /> <br/>
     </div>
     <div class=row>
         <label class="whiteText col-2">Username</label>
-        <input class="col-2" type="text" /> <br/>
+        <input class="col-2" type="text" formControlName="newUser" /> <br/>
     </div>
     <div class=row>
-        <label class="whiteText col-2">Password</label>
-        <input class="col-2" type="text" /> <br/>
+        <label class=" whiteText col-2 ">Password</label>
+        <input class="col-2 " type="text " formControlName="newPass" /> <br/>
     </div>
-    <div class="row">
-        <input type="button" class="col-2 moveButton" style="background:transparent;border:none;">
-        <input type="submit" class="btn btn-secondary col-2 buttonSub" (click)="goToPortfolio()"> >
+    <div class="row ">
+        <input type="button " class="col-2 moveButton " style="background:transparent;border:none; ">
+        <input type="submit" class="btn btn-secondary col-2 buttonSub "> >
     </div>
 
 </form>

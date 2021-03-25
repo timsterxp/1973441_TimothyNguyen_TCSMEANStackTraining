@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,13 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+    newUserAcc=new FormGroup({
+    first:new FormControl(),
+    last:new FormControl(),
+    newUser:new FormControl(),
+    newPass:new FormControl(),
+  });
 
   constructor(public router:Router) { }
 
   ngOnInit(): void {
   }
 
-  goToPortfolio(){
-    this.router.navigate(["my-portfolio"]);
+  goToLogin(){
+    this.router.navigate(["login"]);
   }
+
+  newUser(){
+    
+    localStorage.setItem("userAccount",JSON.stringify(this.newUserAcc.value));
+    this.goToLogin();
+  }
+
 }
