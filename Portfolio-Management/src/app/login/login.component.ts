@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //==================================================
+  // Checks credentials that are entered into field
+  // Deny log in if wrong, otherwise navigate to portfolio
+  //==================================================
   checkUser(){
    
     if (localStorage.getItem("userAccount")!=null){
@@ -37,7 +41,10 @@ export class LoginComponent implements OnInit {
     }
     }
 
-
+    
+  //==================================================
+  // Navigate to Sign up page if clicked
+  //==================================================
   signUp(){
     this.router.navigate(["signup"]);
   }

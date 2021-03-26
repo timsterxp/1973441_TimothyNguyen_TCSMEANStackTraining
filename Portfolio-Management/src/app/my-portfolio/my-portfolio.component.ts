@@ -19,6 +19,11 @@ export class MyPortfolioComponent implements OnInit {
   ngOnInit(): void {
     this.pullUserName();
   }
+
+  //==================================================
+  // Grabs information from the form and places it into the table. 
+  //Resets form afterwards
+  //==================================================
   addToTable(){
     let userToAdd=this.contactDetails.get("contactName").value;
     let phoneToAdd= this.contactDetails.get("phoneNumber").value;
@@ -26,10 +31,20 @@ export class MyPortfolioComponent implements OnInit {
     tableToAdd.innerHTML+="<tr style=color:rgba(255,255,255,0.6);'><th>"+ userToAdd +"</th><th>"+phoneToAdd+"</th></tr>";
     this.contactDetails.reset();
   }
+
+  //==================================================
+  // Routing Method to go to Login Page + remove 
+  // session token
+  //==================================================
+
   goToLogin(){
     sessionStorage.removeItem("verify");
     this.router.navigate(["login"]);
   }
+
+  //==================================================
+  // Gets the current user that is logged in
+  //==================================================
   pullUserName(){
     if (localStorage.getItem("userAccount")!=null){
       let storedAcc = JSON.parse(localStorage.getItem("userAccount"));

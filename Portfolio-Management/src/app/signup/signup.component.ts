@@ -19,13 +19,17 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  //==================================================
+  // Navigate to Login Screen when Clicked
+  //==================================================
   goToLogin(){
     this.router.navigate(["login"]);
   }
 
+  //==================================================
+  // Creates the new user account and saves it into storage
+  //==================================================
   newUser(){
-    
     localStorage.setItem("userAccount",JSON.stringify(this.newUserAcc.value));
     this.goToLogin();
   }
