@@ -1,4 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #121212;
+}
+
+.whiteTextHeading {
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+}
+
+.whiteTextBody {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.fieldColor {
+    border: 2px solid darkgray;
+}
+
+.textField {
+    border: 2px solid darkgray;
+}
