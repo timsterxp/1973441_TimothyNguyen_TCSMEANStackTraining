@@ -10,7 +10,7 @@ export class TaskService {
   constructor(public http:HttpClient) { }
 
   storeTask(task:any){
-    this.http.post("http://localhost:3000/taskList",task).subscribe(result=>console.log(result));
+    this.http.post("http://localhost:3000/listOfTasks",task).subscribe(result=>console.log(result));
   }
 
   loadTaskDetails():Observable<Task[]>{
