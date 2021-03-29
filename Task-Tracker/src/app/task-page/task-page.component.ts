@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../task.model';
 import { TaskService } from '../task.service';
 
 
@@ -9,12 +8,10 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-page.component.css']
 })
 export class TaskPageComponent implements OnInit {
-  tasksList:Array<Task>=[];
 
   constructor(public taskSer:TaskService) { }
 
   ngOnInit(): void {
-  this.taskSer.loadTaskDetails().subscribe(result=>this.tasksList=result);
   }
 
   storeNewTask(taskRef:any){

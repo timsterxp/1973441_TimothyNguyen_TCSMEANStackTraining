@@ -1,45 +1,36 @@
 <div>
     <h1 class="whiteTextHeading">Task Tracker Page</h1>
-    <div class="addSpacing"></div>
 
-    <div class="col-sm containers" style="display:inline-block; padding-right:50px;padding-left:10px;" class=" fieldColor">
+
+    <div class="col-2 containers" style="display:inline-block; padding-right:50px;padding-left:10px;" class=" fieldColor">
         <form #taskAdd="ngForm" (ngSubmit)="storeNewTask(taskAdd.value) ">
             <mat-form-field>
                 <mat-label class="whiteTextBody">
                     Employee Id
                 </mat-label>
-                <span class="fieldColor">
-                <input matInput type="text " name="employeeId" gModel/>
-                 </span>
+                <input matInput type="text " name="id " class="fieldColor " gModel/>
             </mat-form-field>
             <br/>
             <mat-form-field>
                 <mat-label class="whiteTextBody ">
                     Name
                 </mat-label>
-                <span class="fieldColor ">
-                    <input matInput type="text " name="name" style=" color:rgba(255,255,255,0.7)" ngModel/>
-                </span>
 
+                <input matInput type="text " name="id " class="fieldColor " ngModel/>
             </mat-form-field>
             <br/>
             <mat-form-field>
                 <mat-label class="whiteTextBody ">
                     Task
                 </mat-label>
-                <span class="fieldColor ">
-                    <input matInput type="text " name="taskName" ngModel/>
-                </span>
+                <input matInput type="text " name="id " class="fieldColor " ngModel/>
             </mat-form-field>
             <br/>
             <mat-form-field>
                 <mat-label class="whiteTextBody ">
                     Deadline
                 </mat-label>
-                <span class="fieldColor ">
-                    <input matInput type="text " name="deadline" ngModel/> 
-                </span>
-
+                <input matInput type="text " name="id " class="fieldColor " ngModel/>
             </mat-form-field>
             <br/>
             <button mat-stroked-button type="submit " style="background-color:cadetblue; ">Add Task</button>
@@ -49,28 +40,4 @@
     </div>
 
 
-    <div class="addSpacing"></div>
-
-
-
-    <div class="col-sm" style=" padding-right:50px;padding-left:10px;">
-
-        <br/><br/>
-        <br/>
-        <table border="1">
-            <tr>
-                <th class="whiteTextBody">Task #</th>
-                <th class="whiteTextBody">Employee Id</th>
-                <th class="whiteTextBody">Name</th>
-                <th class="whiteTextBody">Task</th>
-                <th class="whiteTextBody">Deadline</th>
-            </tr>
-            <tr *ngFor="let task of tasksList.taskList">
-                <td class="whiteTextTable">{{task.id}}</td>
-                <td class="whiteTextTable">{{task.employeeId}}</td>
-                <td class="whiteTextTable">{{task.name}}</td>
-                <td class="whiteTextTable">{{task.taskName}}</td>
-                <td class="whiteTextTable">{{task.deadline}}</td>
-            </tr>
-        </table>
-    </div>
+</div>
