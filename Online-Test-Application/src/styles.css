@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: #121212
+}
+
+.whiteTextHeading {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.whiteTextBody {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.headingNavi {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.spacingDivider {
+    width: 10px;
+    height: auto;
+    display: inline-block;
+}
+
+.btnCheck {
+    background-color: skyblue;
+}

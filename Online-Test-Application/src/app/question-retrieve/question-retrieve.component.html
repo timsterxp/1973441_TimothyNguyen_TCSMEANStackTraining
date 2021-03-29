@@ -1,1 +1,16 @@
-<p>question-retrieve works!</p>
+<p class="whiteTextHeading"> Testingworks!</p>
+
+<div *ngFor=" let question of questions" class="whiteTextBody center">
+    <p>{{question.question}}</p>
+
+    <div class="row">
+        <div class="col-sm" *ngFor="let choices of question.choices">
+
+            <input type="checkbox" class="btn-check" id={{choices.id}} autocomplete=" off " />
+            <label class="btn btn-primary " for={{choices.id}}>{{choices.choice}}</label>
+
+        </div>
+    </div>
+
+
+</div>

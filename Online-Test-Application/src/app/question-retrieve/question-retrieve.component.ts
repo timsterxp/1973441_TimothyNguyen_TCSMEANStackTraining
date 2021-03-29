@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Question } from '../question.model';
+import { QuestionService } from '../question.service';
 
 @Component({
   selector: 'app-question-retrieve',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionRetrieveComponent implements OnInit {
 
-  constructor() { }
+  constructor(public questionService:QuestionService) { }
+
+  questions:Array<Question>=[];
 
   ngOnInit(): void {
+    this.questionService.loadTestQuestions().subscribe(result=>this.questions=result)
   }
 
 }
