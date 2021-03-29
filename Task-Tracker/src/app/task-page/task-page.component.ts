@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../task.service';
+
 
 @Component({
   selector: 'app-task-page',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public taskSer:TaskService) { }
 
   ngOnInit(): void {
+  }
+
+  storeNewTask(taskRef:any){
+    console.log(taskRef);
+    this.taskSer.storeTask(taskRef);
   }
 
 }
