@@ -2,40 +2,42 @@
     <h1 class="whiteTextHeading">Task Tracker Page</h1>
 
 
-    <div class="col-sm containers" class="fieldColor">
-        <form #taskAdd="ngForm" (ngSubmit)="storeNewTask(taskAdd.value)">
+    <div class="col-2 containers" style="display:inline-block; padding-right:50px;padding-left:10px;" class=" fieldColor">
+        <form #taskAdd="ngForm" (ngSubmit)="storeNewTask(taskAdd.value) ">
             <mat-form-field>
                 <mat-label class="whiteTextBody">
                     Employee Id
                 </mat-label>
-                <input matInput type="text" name="id" class="fieldColor" gModel/>
+                <input matInput type="text " name="id " class="fieldColor " gModel/>
             </mat-form-field>
             <br/>
             <mat-form-field>
-                <mat-label class="whiteTextBody">
+                <mat-label class="whiteTextBody ">
                     Name
                 </mat-label>
 
-                <input matInput type="text" name="id" class="fieldColor" ngModel/>
+                <input matInput type="text " name="id " class="fieldColor " ngModel/>
             </mat-form-field>
             <br/>
             <mat-form-field>
-                <mat-label class="whiteTextBody">
+                <mat-label class="whiteTextBody ">
                     Task
                 </mat-label>
-                <input matInput type="text" name="id" class="fieldColor" ngModel/>
+                <input matInput type="text " name="id " class="fieldColor " ngModel/>
             </mat-form-field>
             <br/>
             <mat-form-field>
-                <mat-label class="whiteTextBody">
+                <mat-label class="whiteTextBody ">
                     Deadline
                 </mat-label>
-                <input matInput type="text" name="id" class="fieldColor" ngModel/>
+                <input matInput type="text " name="id " class="fieldColor " ngModel/>
             </mat-form-field>
             <br/>
-            <button mat-stroked-button color="primary" type="submit" style="background-color:cadetblue;">Add Task</button>
+            <button mat-stroked-button type="submit " style="background-color:cadetblue; ">Add Task</button>
             <br/>
             <br/>
         </form>
     </div>
+
+
 </div>
