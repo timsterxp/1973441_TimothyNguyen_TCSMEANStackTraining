@@ -23,4 +23,17 @@ export class QuestionRetrieveComponent implements OnInit {
     this.questionService.loadTestQuestions().subscribe(result=>this.questions=result)
   }
 
+  checkQuestion(){
+    let button=document.getElementById("101") as HTMLInputElement;
+    if (button.checked)
+    console.log("You entered ");
+
+
+  }
+
+
+  clickMe(id:string){
+    console.log("You clicked me" + id);
+  }
+
 }

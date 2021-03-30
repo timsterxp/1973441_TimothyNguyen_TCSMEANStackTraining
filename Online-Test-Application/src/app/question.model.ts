@@ -8,10 +8,10 @@
 
 
 export class questionChoices{
-    constructor(public choice:string,public id:number, public answer:number){}
+    constructor(public choice:string,public id:string){}
 }
 
 
 export class Question{
-    constructor (public question:string,public questionId:number,public choices:questionChoices[]){}
+    constructor (public question:string,public questionId:string,public choices:questionChoices[],public answer:string){}
 }
