@@ -1,16 +1,28 @@
-<p class="whiteTextHeading"> Testingworks!</p>
-
-<div *ngFor=" let question of questions" class="whiteTextBody center">
-    <p>{{question.question}}</p>
+<p class="whiteTextHeading"> This is your Quiz!</p>
+<p class="whiteTextSub"> Instructions: Please answer every question to the best of your ability, some questions may have multiple answers.</p>
+<div *ngFor=" let question of questions" class="whiteTextBody">
+    <div class="addSpacingQuestions"></div>
+    <div>{{question.question}}</div>
+    <br/>
 
     <div class="row">
-        <div class="col-sm" *ngFor="let choices of question.choices">
+        <div class="addSpacingAnswers"></div>
+        <div class="btn-group" role="group" aria-label="Basic Toggle Button Group">
+            <div class="col-sm" *ngFor="let choices of question.choices; let i=index">
 
-            <input type="checkbox" class="btn-check" id={{choices.id}} autocomplete=" off " />
-            <label class="btn btn-primary " for={{choices.id}}>{{choices.choice}}</label>
+                <input type="radio" class="btn-check" name={{question.questionId}} id='{{choices.id}}' autocomplete=" off ">
+                <label class="btn btn-outline-secondary " for='{{choices.id}}'>{{choices.choice}}</label>
+            </div>
 
+
+            <br/><br/><br/>
         </div>
     </div>
 
 
+
+
+
 </div>
+
+<button type="Submit ">Submit Answers</button>

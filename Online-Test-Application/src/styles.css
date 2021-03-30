@@ -9,6 +9,10 @@ body {
     color: rgba(255, 255, 255, 0.75);
 }
 
+.whiteTextSub {
+    color: rgba(255, 255, 255, 0.65);
+}
+
 .whiteTextBody {
     color: rgba(255, 255, 255, 0.6);
 }
@@ -29,4 +33,16 @@ body {
 
 .btnCheck {
     background-color: skyblue;
+}
+
+.addSpacingAnswers {
+    width: 100px;
+    height: auto;
+    display: inline-block;
+}
+
+.addSpacingQuestions {
+    width: 15px;
+    height: auto;
+    display: inline-block;
 }
