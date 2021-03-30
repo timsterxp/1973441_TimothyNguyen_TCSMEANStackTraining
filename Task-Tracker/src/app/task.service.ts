@@ -13,8 +13,9 @@ export class TaskService {
     this.http.post("http://localhost:3000/listOfTasks",task).subscribe(result=>console.log(result));
   }
 
-  loadTaskDetails():Observable<Task[]>{
-    return this.http.get<Task[]>("/assets/task.json");
+  loadTaskDetails(){
+   //return this.http.get<Task[]>("/assets/task.json");
+    return this.http.get<Task[]>("http://localhost:3000/listOfTasks");
   }
 
   

@@ -9,22 +9,22 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-page.component.css']
 })
 export class TaskPageComponent implements OnInit {
-  tasksList:Array<Task>=[];
+  tasks:Array<Task>=[];
+  test:Array<Object>=[];
 
   constructor(public taskSer:TaskService) { }
 
   ngOnInit(): void {
-  this.taskSer.loadTaskDetails().subscribe(result=>this.tasksList=result);
+  this.taskSer.loadTaskDetails().subscribe(result=>this.tasks=result,error=>console.log(error));
   }
 
   storeNewTask(taskRef:any){
     console.log(taskRef);
+    console.log(this.tasks);
     this.taskSer.storeTask(taskRef);
-    this.load();
+
   }
 
-  load(){
-    this.taskSer.loadTaskDetails().subscribe(result=>this.tasksList=result);
-  }
+ 
 
 }
