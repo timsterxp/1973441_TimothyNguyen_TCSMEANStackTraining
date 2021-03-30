@@ -66,7 +66,7 @@ export class QuestionRetrieveComponent implements OnInit {
     //Calculate Score and Print correct message
     let score=(correctNum/numOfQuestions)*100;
     let scoreText=document.getElementById('scoreHere');
-    if (score>=80){
+    if (score>=70){
       scoreText.innerHTML+="Congrats! You Passed With A Score Of "+score+"%";
     }else{
       scoreText.innerHTML+="Sorry! You Didn't Pass! Your Score Is "+score+"%";
