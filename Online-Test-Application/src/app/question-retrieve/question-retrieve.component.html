@@ -1,8 +1,8 @@
 <p class="whiteTextHeading"> This is your Quiz!</p>
 <p class="whiteTextSub"> Instructions: Please answer every question to the best of your ability, all questions only have one best answer.</p>
-<div *ngFor=" let question of questions" class="whiteTextBody">
+<div *ngFor=" let question of questions,let i=index" class="whiteTextBody">
     <div class="addSpacingQuestions"></div>
-    <div style="padding-left:20px;">{{question.question}}</div>
+    <div style="padding-left:20px;">{{i+1}}) {{question.question}}</div>
     <br/>
 
     <div class="row">
@@ -11,28 +11,31 @@
             <div class="col-sm" *ngFor="let choices of question.choices; let i=index">
                 <div class="addSpacingAnswers"></div>
 
-                <input type="radio" class="btn-check" name="{{question.questionId}}" id="{{choices.id}}" value="5" (click)="checkQuestion();" autocomplete=" off ">
+                <input type="radio" class="btn-check" name="{{question.questionId}}" id="{{choices.id}}" value="{{choices.choice}}" autocomplete=" off ">
                 <label class="btn btn-outline-secondary " for="{{choices.id}}">{{choices.choice}}</label>
             </div>
 
 
-            <br/><br/><br/>
+            <br/><br/><br/><br/><br/>
         </div>
     </div>
 
+    <div id="insertHere{{question.questionId}}" style="color:teal">
+    </div>
+
+    <div id="{{question.questionId}}insertHere" style="color:red"></div>
 
 
 
 
 </div>
+<br/>
+<br/>
+<br/>
+
+<div id="scoreHere" class="whiteTextHeading"></div>
 <div style="text-align:right; padding-right:100px;">
-    <button type="Submit" (click)="checkQuestion()">Submit Answers</button></div>
+    <button type="button" (click)="checkQuestion()">Submit Answers</button></div>
 
 
 <br/><br/>
-
-<script>
-    function testClick(value) {
-        console.log("You clicked me! " + value)
-    }
-</script>
