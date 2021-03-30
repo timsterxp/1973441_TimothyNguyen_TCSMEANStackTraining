@@ -10,7 +10,6 @@ import { TaskService } from '../task.service';
 })
 export class TaskPageComponent implements OnInit {
   tasks:Array<Task>=[];
-  test:Array<Object>=[];
 
   constructor(public taskSer:TaskService) { }
 
@@ -18,6 +17,9 @@ export class TaskPageComponent implements OnInit {
   this.taskSer.loadTaskDetails().subscribe(result=>this.tasks=result,error=>console.log(error));
   }
 
+//==================================================
+// Take information from TDF and store into json
+//==================================================
   storeNewTask(taskRef:any){
     console.log(taskRef);
     console.log(this.tasks);
@@ -25,6 +27,9 @@ export class TaskPageComponent implements OnInit {
 
   }
 
+//==================================================
+// Used to display names in the mat-table
+//==================================================
   displayedColumns = ['Employee Id', 'Name', 'Task', 'Deadline'];
 
 }

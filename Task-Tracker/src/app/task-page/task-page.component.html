@@ -1,7 +1,15 @@
+<!--
+    Task-Tracker(W/ PWA)
+    Simplilearn TCS
+    Timothy Nguyen 1973441
+-->
+
+
 <div>
     <h1 class="whiteTextHeading">Task Tracker Page</h1>
     <div class="addSpacing"></div>
 
+    <!-- Template Driven Form-->
     <div class="col-sm containers" style="display:inline-block; padding-right:50px;padding-left:10px;" class=" fieldColor">
         <form #taskRef="ngForm" (ngSubmit)="storeNewTask(taskRef.value)">
 
