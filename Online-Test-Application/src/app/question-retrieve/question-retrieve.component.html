@@ -1,5 +1,7 @@
 <p class="whiteTextHeading"> This is your Quiz!</p>
-<p class="whiteTextSub"> Instructions: Please answer every question to the best of your ability, all questions only have one best answer.</p>
+<p style="padding-left:20px;" class="whiteTextSub"> Instructions: Please answer every question to the best of your ability, all questions only have one best answer.</p>
+
+<!--Iterate through using ngFor. Displays questions and four buttons for each-->
 <div *ngFor=" let question of questions,let i=index" class="whiteTextBody">
     <div class="addSpacingQuestions"></div>
     <div style="padding-left:20px;">{{i+1}}) {{question.question}}</div>
@@ -20,6 +22,7 @@
         </div>
     </div>
 
+    <!--Extra div tags to display if they were correct or not-->
     <div id="insertHere{{question.questionId}}" style="color:teal">
     </div>
 
@@ -33,6 +36,7 @@
 <br/>
 <br/>
 
+<!--Div tags to display answer/score-->
 <div id="scoreHere" class="whiteTextHeading"></div>
 <div style="text-align:right; padding-right:100px;">
     <button type="button" (click)="checkQuestion()">Submit Answers</button></div>

@@ -19,173 +19,173 @@
         ]
     },
     {
-        "question": "What is 2+2?",
+        "question": "Who teaches the TCS Simplilearn courses?",
         "questionId": "2",
-        "answer": "4",
+        "answer": "Akash",
         "choices": [{
-                "choice": "1",
+                "choice": "Akash",
                 "id": "201"
             },
             {
-                "choice": "2",
+                "choice": "Sumaira",
                 "id": "202"
             }, {
-                "choice": "3",
+                "choice": "Kevin",
                 "id": "203"
             }, {
-                "choice": "4",
+                "choice": "TCS",
                 "id": "204"
             }
         ]
     }, {
-        "question": "What is 2+2?",
+        "question": "Should there be more breaks during TCS Simplilearn live classes?",
         "questionId": "3",
-        "answer": "4",
+        "answer": "Yes",
         "choices": [{
-                "choice": "1",
+                "choice": "No",
                 "id": "301"
             },
             {
-                "choice": "2",
+                "choice": "Yes",
                 "id": "302"
             }, {
-                "choice": "3",
+                "choice": "What are breaks?",
                 "id": "303"
             }, {
-                "choice": "4",
+                "choice": "This is not an answer",
                 "id": "304"
             }
         ]
     }, {
-        "question": "What is 2+2?",
+        "question": "What is TCS?",
         "questionId": "4",
-        "answer": "4",
+        "answer": "Tata Consultancy Services",
         "choices": [{
-                "choice": "1",
+                "choice": "To come see",
                 "id": "401"
             },
             {
-                "choice": "2",
+                "choice": "Thermal Conduction Services",
                 "id": "402"
             }, {
-                "choice": "3",
+                "choice": "Termite Catching Services",
                 "id": "403"
             }, {
-                "choice": "4",
+                "choice": "Tata Consultancy Services",
                 "id": "404"
             }
         ]
     }, {
-        "question": "What is 2+2?",
+        "question": "What is the most commonly used search engine?",
         "questionId": "5",
-        "answer": "4",
+        "answer": "Google",
         "choices": [{
-                "choice": "1",
+                "choice": "Yahoo",
                 "id": "501"
             },
             {
-                "choice": "2",
+                "choice": "Bing",
                 "id": "502"
             }, {
-                "choice": "3",
+                "choice": "Google",
                 "id": "503"
             }, {
-                "choice": "4",
+                "choice": "DuckDuckGo",
                 "id": "504"
             }
         ]
     }, {
-        "question": "What is 2+2?",
+        "question": "Who is the TCS Simplilearn Manager?",
         "questionId": "6",
-        "answer": "4",
+        "answer": "Rahul",
         "choices": [{
-                "choice": "1",
+                "choice": "Rahul",
                 "id": "601"
             },
             {
-                "choice": "2",
+                "choice": "Sumaira",
                 "id": "602"
             }, {
-                "choice": "3",
+                "choice": "Kishor",
                 "id": "603"
             }, {
-                "choice": "4",
+                "choice": "Viktor",
                 "id": "604"
             }
         ]
     }, {
-        "question": "What is 2+2?",
+        "question": "What is the derivative of 2x?",
         "questionId": "7",
-        "answer": "4",
+        "answer": "2",
         "choices": [{
-                "choice": "1",
+                "choice": "x^2",
                 "id": "701"
             },
             {
-                "choice": "2",
+                "choice": "2x",
                 "id": "702"
             }, {
-                "choice": "3",
+                "choice": "2",
                 "id": "703"
             }, {
-                "choice": "4",
+                "choice": "x",
                 "id": "704"
             }
         ]
     }, {
-        "question": "What is 2+2?",
+        "question": "What is 10+55?",
         "questionId": "8",
-        "answer": "4",
+        "answer": "65",
         "choices": [{
-                "choice": "1",
+                "choice": "10",
                 "id": "801"
             },
             {
-                "choice": "2",
+                "choice": "55",
                 "id": "802"
             }, {
-                "choice": "3",
+                "choice": "0",
                 "id": "803"
             }, {
-                "choice": "4",
+                "choice": "65",
                 "id": "804"
             }
         ]
     }, {
-        "question": "What is 2+2?",
+        "question": "What does LOL stand for?",
         "questionId": "9",
-        "answer": "4",
+        "answer": "Laugh Out Loud",
         "choices": [{
-                "choice": "1",
+                "choice": "Laugh Out Loud",
                 "id": "901"
             },
             {
-                "choice": "2",
+                "choice": "Lots Of Love",
                 "id": "902"
             }, {
-                "choice": "3",
+                "choice": "Lessons Of Love",
                 "id": "903"
             }, {
-                "choice": "4",
+                "choice": "Leaves Of Lea",
                 "id": "904"
             }
         ]
     }, {
-        "question": "What is 2+2?",
+        "question": "What is on 03/31/2021?",
         "questionId": "10",
-        "answer": "4",
+        "answer": "Our MCQ",
         "choices": [{
-                "choice": "1",
+                "choice": "Our MCQ",
                 "id": "1001"
             },
             {
-                "choice": "2",
+                "choice": "The End Of The World",
                 "id": "1002"
             }, {
-                "choice": "3",
+                "choice": "A Saturday",
                 "id": "1003"
             }, {
-                "choice": "4",
+                "choice": "The Weekend",
                 "id": "1004"
             }
         ]
