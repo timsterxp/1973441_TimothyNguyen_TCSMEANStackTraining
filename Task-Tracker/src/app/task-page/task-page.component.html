@@ -6,9 +6,12 @@
         <form #taskRef="ngForm" (ngSubmit)="storeNewTask(taskRef.value)">
 
             <mat-form-field>
+
                 <mat-label class="whiteTextBody">
                     Name
                 </mat-label>
+
+                <!--Take Name Input-->
                 <span class="fieldColor">
                 <input matInput type="text " name="name" style=" color:rgba(255,255,255,0.7)"ngModel/>
                  </span>
@@ -18,6 +21,8 @@
                 <mat-label class="whiteTextBody ">
                     Employee Id
                 </mat-label>
+
+                <!--Take Employee ID Input-->
                 <span class="fieldColor ">
                     <input matInput type="text " name="employeeId" style=" color:rgba(255,255,255,0.7)" ngModel/>
                 </span>
@@ -28,17 +33,22 @@
                 <mat-label class="whiteTextBody ">
                     Task
                 </mat-label>
+
+                <!--Take Task Name Input-->
                 <span class="fieldColor ">
                     <input matInput type="text " name="taskName" style=" color:rgba(255,255,255,0.7)" ngModel/>
                 </span>
+
             </mat-form-field>
             <br/>
             <mat-form-field>
                 <mat-label class="whiteTextBody ">
                     Deadline
                 </mat-label>
+
+                <!--Take Deadline Date Input-->
                 <span class="fieldColor ">
-                    <input matInput type="text " name="deadline"style=" color:rgba(255,255,255,0.7)" ngModel/> 
+                    <input matInput type="date" name="deadline"style=" color:rgba(255,255,255,0.7)" ngModel/> 
                 </span>
 
             </mat-form-field>
@@ -52,8 +62,44 @@
 
     <div class="addSpacing"></div>
 
+    <br/><br/><br/>
 
 
+    <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+
+
+        <!-- Employee Id Column -->
+        <ng-container matColumnDef="Employee Id">
+            <th mat-header-cell *matHeaderCellDef> Employee Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Task Name Column -->
+        <ng-container matColumnDef="Task">
+            <th mat-header-cell *matHeaderCellDef> Task </th>
+            <td mat-cell *matCellDef="let element"> {{element.taskName}} </td>
+        </ng-container>
+
+        <!-- Deadline Column -->
+        <ng-container matColumnDef="Deadline">
+            <th mat-header-cell *matHeaderCellDef> Deadline </th>
+            <td mat-cell *matCellDef="let element"> {{element.deadline}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+
+    <!--Old Implementation Of Tables-->
+    <!-- 
     <div class="col-sm" style=" padding-right:50px;padding-left:10px;">
 
         <br/><br/>
@@ -77,3 +123,4 @@
 
         </table>
     </div>
+-->

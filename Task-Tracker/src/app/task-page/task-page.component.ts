@@ -25,6 +25,7 @@ export class TaskPageComponent implements OnInit {
 
   }
 
- 
+  displayedColumns = ['Employee Id', 'Name', 'Task', 'Deadline'];
 
 }
+

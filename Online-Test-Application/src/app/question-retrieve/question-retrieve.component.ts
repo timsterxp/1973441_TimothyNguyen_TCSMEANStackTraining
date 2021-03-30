@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../question.model';
 import { QuestionService } from '../question.service';
+//==================================================
+// Quiz Application Project
+// Simplilearn TCS
+// Timothy Nguyen
+// 1973441
+//==================================================
 
 @Component({
   selector: 'app-question-retrieve',
