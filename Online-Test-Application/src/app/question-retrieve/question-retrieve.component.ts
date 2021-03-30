@@ -8,11 +8,17 @@ import { QuestionService } from '../question.service';
   styleUrls: ['./question-retrieve.component.css']
 })
 export class QuestionRetrieveComponent implements OnInit {
-
+//==================================================
+// Question Service For Retrieving Questions
+//==================================================
   constructor(public questionService:QuestionService) { }
 
+  //An Array that contains all Questions
   questions:Array<Question>=[];
 
+//==================================================
+// Load Questions on Component Load
+//==================================================
   ngOnInit(): void {
     this.questionService.loadTestQuestions().subscribe(result=>this.questions=result)
   }

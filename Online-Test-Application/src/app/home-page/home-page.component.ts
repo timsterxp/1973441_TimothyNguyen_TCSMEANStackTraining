@@ -8,11 +8,17 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
+//==================================================
+// Router Constructor for Navigation Purposes
+//==================================================
   constructor(public router:Router) { }
 
   ngOnInit(): void {
   }
 
+//==================================================
+// Router Navigation for Quiz on Click
+//==================================================
   goToQuiz(){
     this.router.navigate(["question-page"]);
   }
