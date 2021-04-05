@@ -5,9 +5,9 @@
 //==================================================
 
 
-let obj = require("readline-sync");
-let fs = require("fs");
-let recordArray = new Array();
+var obj = require("readline-sync");
+var fs = require("fs");
+var recordArray = new Array();
 //==================================================
 // Class  LogFunctions contains functions to log data
 //==================================================
@@ -52,51 +52,52 @@ class LogFunctions {
         // Contains Validators for each input
         //==================================================
     getNewData() {
+        debugger;
+        var amountOfRecords = obj.questionInt("How many records would you like to store? ", { defaultInput: 5 });
+        debugger;
+        // for (let i = 0; i < amountOfRecords; i++) {
+        let firstName = obj.question("Enter First Name: ");
+        while (!this.validName(firstName))
+            firstName = obj.question("Enter First Name: ");
 
-        let amountOfRecords = obj.questionInt("How many records would you like to store? ");
-        for (let i = 0; i < amountOfRecords; i++) {
-            let firstName = obj.question("Enter First Name: ");
-            while (!this.validName(firstName))
-                firstName = obj.question("Enter First Name: ");
+        let lastName = obj.question("Enter Last Name: ");
+        while (!this.validName(lastName))
+            lastName = obj.question("Enter Last Name: ");
 
-            let lastName = obj.question("Enter Last Name: ");
-            while (!this.validName(lastName))
-                lastName = obj.question("Enter Last Name: ");
+        let gender = obj.question("Enter Gender, Use (M/F/O) for Male,Female,Other: ");
+        let lowerGender = gender.toLowerCase();
 
-            let gender = obj.question("Enter Gender, Use (M/F/O) for Male,Female,Other: ");
-            let lowerGender = gender.toLowerCase();
-
-            // Validator for Gender Input
-            let validInput = false;
-            while (!validInput) {
-                if (lowerGender == "m" || lowerGender == "f" || lowerGender == "o") {
-                    validInput = true;
-                }
+        // Validator for Gender Input
+        let validInput = false;
+        while (!validInput) {
+            if (lowerGender == "m" || lowerGender == "f" || lowerGender == "o") {
+                validInput = true;
             }
-
-
-            let email = obj.question("Enter Email: ");
-
-            //Validator for email input
-            while (!email.includes("@")) {
-                console.log("Warning: Not a valid email, please try again. \n");
-                email = obj.question("Enter Email: ");
-            }
-            let date = new Date();
-            debugger; //Lets you see the data the user entered
-            console.log("\n");
-            let thisObj = {
-                "name": firstName + " " + lastName,
-                "gender": gender,
-                "email": email,
-                "date": date.getUTCMonth() + "-" + date.getUTCDate() + "-" + date.getUTCFullYear(),
-                "time": date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds() + "(UTC Time)"
-            };
-
-            recordArray.push(thisObj);
-            debugger; //Ensure data was pushed to array
-
         }
+
+
+        let email = obj.question("Enter Email: ");
+
+        //Validator for email input
+        while (!email.includes("@")) {
+            console.log("Warning: Not a valid email, please try again. \n");
+            email = obj.question("Enter Email: ");
+        }
+        let date = new Date();
+        debugger; //Lets you see the data the user entered
+        console.log("\n");
+        let thisObj = {
+            "name": firstName + " " + lastName,
+            "gender": gender,
+            "email": email,
+            "date": date.getUTCMonth() + "-" + date.getUTCDate() + "-" + date.getUTCFullYear(),
+            "time": date.getUTCHours() + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds() + "(UTC Time)"
+        };
+
+        recordArray.push(thisObj);
+        debugger; //Ensure data was pushed to array
+
+        // }
     }
 
     //==================================================
