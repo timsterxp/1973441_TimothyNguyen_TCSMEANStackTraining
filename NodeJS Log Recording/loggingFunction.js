@@ -34,18 +34,54 @@ class LogFunctions {
         this.writeAllData();
     }
 
+    //==================================================
+    // Checks if name contains numbers, if so return false
+    //==================================================
+    validName(name) {
+            for (let i = 0; i < 10; i++) {
+                if (name.includes(i)) {
+                    console.log("Warning, number found in name. Please try again. \n");
 
-    //==================================================
-    // Prompts User For User-Data and saves into an array
-    //==================================================
+                    return false;
+                }
+            }
+            return true;
+        }
+        //==================================================
+        // Prompts User For User-Data and saves into an array
+        // Contains Validators for each input
+        //==================================================
     getNewData() {
 
-        let amountOfRecords = obj.questionInt("How many records would you like to store?");
+        let amountOfRecords = obj.questionInt("How many records would you like to store? ");
         for (let i = 0; i < amountOfRecords; i++) {
             let firstName = obj.question("Enter First Name: ");
+            while (!this.validName(firstName))
+                firstName = obj.question("Enter First Name: ");
+
             let lastName = obj.question("Enter Last Name: ");
-            let gender = obj.question("Enter Gender (Male/Female/Nonbinary): ");
+            while (!this.validName(lastName))
+                lastName = obj.question("Enter Last Name: ");
+
+            let gender = obj.question("Enter Gender, Use (M/F/O) for Male,Female,Other: ");
+            let lowerGender = gender.toLowerCase();
+
+            // Validator for Gender Input
+            let validInput = false;
+            while (!validInput) {
+                if (lowerGender == "m" || lowerGender == "f" || lowerGender == "o") {
+                    validInput = true;
+                }
+            }
+
+
             let email = obj.question("Enter Email: ");
+
+            //Validator for email input
+            while (!email.includes("@")) {
+                console.log("Warning: Not a valid email, please try again. \n");
+                email = obj.question("Enter Email: ");
+            }
             let date = new Date();
             debugger; //Lets you see the data the user entered
             console.log("\n");
