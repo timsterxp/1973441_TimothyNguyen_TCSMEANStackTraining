@@ -5,6 +5,9 @@
 //==================================================
 
 
+let obj = require("readline-sync");
+let fs = require("fs");
+let recordArray = new Array();
 //==================================================
 // Class  LogFunctions contains functions to log data
 //==================================================
@@ -17,9 +20,7 @@ class LogFunctions {
     // Also includes array with all records of logs
     //==================================================
     constructor() {
-        let obj = require("readline-sync");
-        let fs = require("fs");
-        let recordArray = new Array();
+
     }
 
 
@@ -46,6 +47,7 @@ class LogFunctions {
             let gender = obj.question("Enter Gender (Male/Female/Nonbinary): ");
             let email = obj.question("Enter Email: ");
             let date = new Date();
+            debugger; //Lets you see the data the user entered
             console.log("\n");
             let thisObj = {
                 "name": firstName + " " + lastName,
@@ -56,6 +58,8 @@ class LogFunctions {
             };
 
             recordArray.push(thisObj);
+            debugger; //Ensure data was pushed to array
+
         }
     }
 
@@ -64,8 +68,6 @@ class LogFunctions {
     //==================================================
     writeAllData() {
         let jsonArray = JSON.stringify(recordArray);
-
-
         fs.writeFileSync("dataRecord.json", jsonArray);
         console.log("File written");
     }
@@ -74,11 +76,11 @@ class LogFunctions {
     // Reads previous JSON file and loads into Array
     //==================================================
     readOldData() {
-
         if (fs.existsSync("dataRecord.json")) {
             let data = fs.readFileSync("dataRecord.json");
             let jsonString = data.toString();
             let anotherJSON = JSON.parse(jsonString);
+            debugger; //Lets you see what data is currently already stored
             for (let j = 0; j < anotherJSON.length; j++) {
                 let name = anotherJSON[j].name;
                 let gender = anotherJSON[j].gender;
@@ -99,4 +101,4 @@ class LogFunctions {
 // Exports the LogFunctions class 
 //==================================================
 
-module.exports = { LogFunctions }
+module.exports = { LogFunctions, obj, fs, recordArray }
