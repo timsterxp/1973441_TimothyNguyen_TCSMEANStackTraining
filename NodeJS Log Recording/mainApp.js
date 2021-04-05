@@ -15,4 +15,3 @@
 let obj = require("./loggingFunction");
 let log = new obj.LogFunctions();
 log.doAllFunctions();
-console.log("Completed");

@@ -6,6 +6,7 @@
 
 
 var obj = require("readline-sync");
+
 var fs = require("fs");
 var recordArray = new Array();
 //==================================================
@@ -29,6 +30,7 @@ class LogFunctions {
     // and writing
     //==================================================
     doAllFunctions() {
+
         this.readOldData();
         this.getNewData();
         this.writeAllData();
@@ -52,11 +54,13 @@ class LogFunctions {
         // Contains Validators for each input
         //==================================================
     getNewData() {
-        debugger;
-        var amountOfRecords = obj.questionInt("How many records would you like to store? ", { defaultInput: 5 });
-        debugger;
+
+
+        var amountOfRecords = obj.questionInt("How many records would you like to store? ");
+
         // for (let i = 0; i < amountOfRecords; i++) {
         let firstName = obj.question("Enter First Name: ");
+
         while (!this.validName(firstName))
             firstName = obj.question("Enter First Name: ");
 
