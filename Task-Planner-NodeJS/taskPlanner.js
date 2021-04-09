@@ -4,6 +4,11 @@
 // Timothy Nguyen 1973441
 //==================================================
 
+
+
+//==================================================
+// Modules used + global array
+//==================================================
 let http = require("http");
 let url = require("url");
 let fs = require("fs");
@@ -31,9 +36,10 @@ let taskInfo = `
     </span>
     </div>
 `
-    //==================================================
-    //  HTML for deleting tasks by ID
-    //==================================================
+
+//==================================================
+//  HTML for deleting tasks by ID
+//==================================================
 let deleteInfo = `<br/> <br/><br/>
     <div style = "margin:auto; text-align:center;"> Delete Tasks Here!  <br/><br/>
     <span style = "padding:10px;border:5px solid black; display:inline-block;">
@@ -45,13 +51,19 @@ let deleteInfo = `<br/> <br/><br/>
     </span>
     </div>
     `
-    //==================================================
-    // Show All Tasks
-    //==================================================
+
+//==================================================
+// Show All Tasks
+//==================================================
 let showInfo =
     `<br/><br/><br/> <br/><form action="/showInfo" style = " margin:auto; text-align:center;">
         <input type ="submit" value="Show Tasks!"/>
     </form>`
+
+
+//==================================================
+// Server running
+//==================================================
 let server = http.createServer((req, res) => {
     //console.log(url.parse(req.url,true))
     var pathInfo = url.parse(req.url, true).pathname;
@@ -63,8 +75,10 @@ let server = http.createServer((req, res) => {
     }
 
 
+
     //==================================================
-    // Code for each submit button URL
+    // Each URL links to a different page representation
+    // Most are the same in this case.
     //==================================================
     if (req.url.includes('/newTask')) {
         console.log(url.parse(req.url, true));
@@ -85,7 +99,7 @@ let server = http.createServer((req, res) => {
         res.write(deleteInfo);
 
         if (deleteTask(data.taskDelete)) {
-            res.write(`Task was successfully deleted!`)
+            res.write(`Task ` + data.taskDelete + ` was successfully deleted!`)
         } else {
             res.write(`Unable to find Task ID: ` + data.taskDelete)
         }
@@ -115,23 +129,24 @@ let server = http.createServer((req, res) => {
 
 
 //==================================================
-//  Functions to do all the storing/save/delete
+//  Adds a new task object to array
 //==================================================
 function addTask(taskId, employeeId, taskName, deadline) {
     oldTasks();
-
     let newTask = {
         "TaskID": taskId,
         "EmployeeID": employeeId,
         "TaskName": taskName,
         "Deadline": deadline
     }
-
     taskArray.push(newTask);
     saveTasks();
 
 }
-
+//==================================================
+// Returns string representation of table in HTML 
+// format
+//==================================================
 function displayTable() {
     let tableHTML = ``;
     if (fs.existsSync("taskRecords.json")) {
@@ -150,7 +165,9 @@ function displayTable() {
     }
     return tableHTML;
 }
-
+//==================================================
+// Ensures previous JSON tasks are saved
+//==================================================
 function oldTasks() {
     if (fs.existsSync("taskRecords.json")) {
         let data = fs.readFileSync("taskRecords.json");
@@ -169,12 +186,17 @@ function oldTasks() {
 }
 
 
-
+//==================================================
+// Saves new tasks into JSON
+//==================================================
 function saveTasks() {
     let jsonArray = JSON.stringify(taskArray);
     fs.writeFileSync("taskRecords.json", jsonArray);
 }
 
+//==================================================
+// Finds all instances of a taskID and deletes them all
+//==================================================
 function deleteTask(taskId) {
 
     oldTasks();
