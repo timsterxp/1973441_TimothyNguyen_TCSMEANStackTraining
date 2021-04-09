@@ -6,35 +6,37 @@
 
 let http = require("http");
 let url = require("url");
+let fs = require("fs");
 let port = 9999;
+let taskArray = new Array();
 
 //==================================================
 // Contains HTML for adding tasks 
 //==================================================
 let taskInfo = `
     <div> Insert New Tasks Here! </div> <br/>
-    <form action="/login" method="get">
+    <form method="get">
         <label>Employee Id</label>
         <input type="text" name="user"/><br/>
-        <label>Task Id</label>
+        <label>Task Id   </label>
         <input type="password" name="pass"/><br/>
-        <label>Task Name</label>
+        <label>Task Name </label>
         <input type="text" name="user"/><br/>
-        <label>Deadline</label>
+        <label>Deadline  </label>
         <input type="text" name="user"/><br/>
-        <input type="submit" value="Sign In!"/>
-        <input type="reset" value="reset"/>
+        <input type="button" value="Add Task"/>
+        <input type="reset" value="Reset"/>
     </form>
 `
     //==================================================
     //  HTML for deleting tasks by ID
     //==================================================
 let deleteInfo = `
-    <div> Delete Tasks Here! </div> <br/>
+    <div> <br/> <br/><br/>Delete Tasks Here! </div> <br/>
     <form> 
         <label> Task Id </label>
         <input type ="text" name="taskDelete"/> <br/>
-        <input type = "button" value = "Delete Task"> <br/><br/>
+        <input type = "button" value = "Delete Task"> <br/><br/><br/> <br/>
     </form>
 
     `
@@ -55,4 +57,28 @@ let server = http.createServer((req, res) => {
         res.end(showInfo)
     }
 })
+
+
+addTask(taskId, employeeId, taskName, deadline) {
+    let newTask = {
+        "TaskID": taskId,
+        "EmployeeID": employeeId,
+        "TaskName": taskName,
+        "Deadline:": deadline;
+    }
+
+    taskArray.push(newTask);
+}
+
+saveTasks() {
+    let jsonArray = JSON.stringify(taskArray);
+    fs.writeFileSync("taskRecords.json", jsonArray);
+}
+
+deleteTask(taskId) {
+    //Find task in array
+    //Delete task
+}
+
+
 server.listen(port, () => console.log(`running on port num ${port}`));
