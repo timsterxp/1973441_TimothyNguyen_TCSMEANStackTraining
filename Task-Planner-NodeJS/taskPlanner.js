@@ -176,8 +176,7 @@ function saveTasks() {
 }
 
 function deleteTask(taskId) {
-    //Find task in array
-    //Delete task
+
     oldTasks();
     console.log("deleted");
     let elementsToDelete = new Array();
@@ -189,16 +188,17 @@ function deleteTask(taskId) {
 
         for (let i = 0; i < anotherJSON.length; i++) {
             if (taskId == anotherJSON[i].TaskID) {
-                taskArray.splice(i, 1);
-                saveTasks();
-                //   elementsToDelete.push(i);
+                elementsToDelete.push(i);
                 deleted = true;
             }
         }
 
 
     }
-
+    while (elementsToDelete.length > 0) {
+        taskArray.splice(elementsToDelete.pop(), 1);
+    }
+    saveTasks();
     return deleted;
 }
 
