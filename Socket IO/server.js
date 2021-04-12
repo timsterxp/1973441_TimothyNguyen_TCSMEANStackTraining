@@ -10,14 +10,15 @@ let app = require("express")();
 let http = require("http").Server(app);
 let io = require("socket.io")(http);
 
-
+//Access to HTML
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 })
 
+//Initial Client Connection
 io.on("connection", (socket) => {
     console.log("Client Connected To Application...");
-
+    //Socket IO Message Display
     socket.on("chat", (msg) => {
         console.log(msg);
     })
