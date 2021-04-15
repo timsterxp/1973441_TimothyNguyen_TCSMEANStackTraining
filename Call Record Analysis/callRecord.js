@@ -66,7 +66,11 @@ db.once("open", () => {
 
 
 // Below is the MongoDB Module Implementation
-/* 
+// Comments with "Remove Me!" should remove the whole line and comment the entirety of 
+// above to run via  MongoDB Modules
+
+/* //Remove Me!
+
 let mongoClient = require("mongodb").MongoClient;
 var fs = require("fs");
 let url = "mongodb://localhost:27017"
@@ -81,15 +85,15 @@ mongoClient.connect(url, { useUnifiedTopology: true }, (err1, client) => {
 
             //This code lists the keys of the JSON file. 
             //May be used in future iterations for dynamically loading JSON to DB
-*/
-/*
-for (var key in anotherJSON[0]) {
-    console.log(key);
-}
+ //Remove Me!*/
+/* 
+//for (var key in anotherJSON[0]) {
+//   console.log(key);
+//}
 */
 
 
-/*
+/*//Remove Me!
 debugger; //Lets you see what data is currently already stored
 
 for (let j = 0; j < anotherJSON.length; j++) {
@@ -109,4 +113,4 @@ for (let j = 0; j < anotherJSON.length; j++) {
 
 
 }); 
-*/
+//Remove Me!*/
