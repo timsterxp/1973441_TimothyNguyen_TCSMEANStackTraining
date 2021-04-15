@@ -7,20 +7,31 @@ mongoClient.connect(url, { useUnifiedTopology: true }, (err1, client) => {
         let db = client.db("meanstack");
 
         if (fs.existsSync("call_data.json")) {
-            let data = fs.readFileSync("dataRecord.json");
+            let data = fs.readFileSync("call_data.json");
             let jsonString = data.toString();
             let anotherJSON = JSON.parse(jsonString);
+
+            //This code lists the keys of the JSON file. 
+            //May be used in future iterations for dynamically loading JSON to DB
+
+            /*
+            for (var key in anotherJSON[0]) {
+                console.log(key);
+            }
+
+            */
+
+
             debugger; //Lets you see what data is currently already stored
             for (let j = 0; j < anotherJSON.length; j++) {
-                let _id = anotherJSON[j]._id;
-                let source = anotherJSON[j].source;
-                let destination = anotherJSON[j].destination;
-                let sourceLocation = anotherJSON[j].sourceLocation;
-                let destinationLocation = anotherJSON[j].destinationLocation;
-                let callDuration = anotherJSON[j].callDuration;
-                let roaming = anotherJSON[j].roaming;
-                let callCharge = anotherJSON[j].callCharge;
-
+                db.collection("callRecords").insertOne({ _id: anotherJSON[j]._id, source: anotherJSON[j].source, destination: anotherJSON[j].destination, sourceLocation: anotherJSON[j].sourceLocation, destinationLocation: anotherJSON[j].destinationLocation, callDuration: anotherJSON[j].callDuration, roaming: anotherJSON[j].roaming, callCharge: anotherJSON[j].callCharge }, (err2, result) => {
+                    if (!err2) {
+                        console.log(result.insertedCount);
+                    } else {
+                        console.log(err2.message);
+                    }
+                    client.close();
+                });
             }
         }
 
@@ -28,15 +39,4 @@ mongoClient.connect(url, { useUnifiedTopology: true }, (err1, client) => {
     }
 
 
-    //Example to change
-    db.collection("CallRecords").insertOne({ /*data here */ }, (err2, result) => {
-        if (!err2) {
-            console.log(result.insertedCount);
-        } else {
-            console.log(err2.message);
-        }
-        client.close();
-    });
-
-}
 });
