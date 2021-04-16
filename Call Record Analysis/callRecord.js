@@ -83,14 +83,16 @@ mongoClient.connect(url, { useUnifiedTopology: true }, (err1, client) => {
             let jsonString = data.toString();
             let anotherJSON = JSON.parse(jsonString);
 
-            //This code lists the keys of the JSON file. 
-            //May be used in future iterations for dynamically loading JSON to DB
- //Remove Me!*/
-/* 
+            
+ 
+/* //Remove Me!*/
+//This code lists the keys of the JSON file. 
+//May be used in future iterations for dynamically loading JSON to DB
 //for (var key in anotherJSON[0]) {
 //   console.log(key);
 //}
-*/
+*
+/
 
 
 /*//Remove Me!
