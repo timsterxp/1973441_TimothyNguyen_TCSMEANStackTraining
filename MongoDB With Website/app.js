@@ -7,6 +7,11 @@
 // -Features: Add, Delete, Update and Fetch
 //==================================================
 
+
+//==================================================
+// Set up all variables/connections
+//==================================================
+
 let app = require("express")();
 let bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,16 +21,6 @@ let url = "mongodb://localhost:27017/meanstack";
 //middleware enable data from post method.
 app.use(bodyParser.urlencoded({ extended: true })); // enable body part data  
 app.use(bodyParser.json()); // json data. 
-
-
-
-/*
-index.html                  get 
-retreive all course         get
-create, delete and update   post 
-
-*/
-
 
 let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
@@ -48,6 +43,10 @@ mongoose.connection
 
 let CourseModel = mongoose.model("courses", CourseSchema, "Courses");
 
+//==================================================
+// Get Methods to access HTML files
+//==================================================
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 })
@@ -61,13 +60,13 @@ app.get("/updateCourse", (req, res) => {
     res.sendFile(__dirname + "/updateCourse.html");
 })
 
+
+//==================================================
+// Creates new Course Model and saves into MongoDB
+//==================================================
+
 app.post("/addCourse", (req, res) => {
-    /*
-    retreive data from body part 
-    connected to database 
-    store in database. 
-        res.sendFile(__dirname+"/index.html")
-    */
+
 
     let course = new CourseModel({
         _id: req.body.cid,
@@ -89,6 +88,10 @@ app.post("/addCourse", (req, res) => {
 
 })
 
+//==================================================
+// Deletes course from database by ID
+//==================================================
+
 app.post("/deleteCourse", (req, res) => {
     let cid = req.body.cid;
     CourseModel.deleteOne({ _id: cid }, (err, result) => {
@@ -105,6 +108,10 @@ app.post("/deleteCourse", (req, res) => {
         // res.sendFile(__dirname + "/index.html")
 })
 
+//==================================================
+// Update course by ID
+//==================================================
+
 app.post("/updateCourse", (req, res) => {
     let cid = req.body.cid;
     let updatePrice = req.body.amount;
@@ -112,11 +119,7 @@ app.post("/updateCourse", (req, res) => {
     let newName = req.body.cname;
     CourseModel.updateMany({ _id: cid }, { $set: { cname: newName, description: newDescription, amount: updatePrice } }, (err, result) => {
             if (!err) {
-                if (result.deletedCount > 0) {
-                    res.send("Record deleted successfully")
-                } else {
-                    res.send("Record not present");
-                }
+                res.send("Record updated")
             } else {
                 res.send("Error : " + err);
             }
@@ -124,30 +127,30 @@ app.post("/updateCourse", (req, res) => {
         // res.sendFile(__dirname + "/index.html")
 })
 
-app.get("/fetchCourse", (req, res) => {
-    /*
-        retrieve records from mongodb and store in array 
-        
-        res.json(arrayName);
 
-    */
+//==================================================
+// Fetch a table of courses
+//==================================================
+
+app.get("/fetchCourse", (req, res) => {
+
 
     CourseModel.find({}, (err, result) => {
 
         if (!err) {
             let table = `<table>
             <tr>
-                <th>Course Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Amount</th>
+                <th style = "border:5px solid blue;">Course Id</th>
+                <th style = "border:5px solid blue;">Name</th>
+                <th style = "border:5px solid blue;">Description</th>
+                <th style = "border:5px solid blue;">Amount</th>
             </tr>`;
             //res.json(result);
             for (course in result) {
-                console.log(result[course].cname);
-                table += `<tr><th>` + result[course]._id + `</th><th>` + result[course].cname + `</th><th>` + result[course].description + `</th><th>` + result[course].amount + `</th></tr>`;
+                table += `<tr><th style = "border:3px solid skyblue;">${result[course]._id}</th><th style = "border:3px solid skyblue;">${result[course].cname}</th><th style = "border:3px solid skyblue;">${result[course].description}</th><th style = "border:3px solid skyblue;">${result[course].amount}</th></tr>`
             }
             res.write(table);
+            res.end();
         }
     })
 
