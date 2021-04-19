@@ -20,8 +20,8 @@
     </script>
     <!--Initial message when first accessing page as well as new message when button clicked on HTML-->
     <script type="text/JavaScript">
-        var socket=io(); socket.emit("chat","Welcome to the SocketIO Logging"); function showMessage(){ let name = document.getElementById("name").value; let message = document.getElementById("messageInfo").value; socket.emit("chat",`Hello ${name} \nYour Message:${message}`);
-        }
+        var socket=io(); socket.emit("chat","Welcome to the SocketIO Logging"); function showMessage(){ let name = document.getElementById("name").value; let message = document.getElementById("messageInfo").value; let newFormat= {"name":name,"message":message};
+        socket.emit("chat",newFormat); }
     </script>
 </head>
 
