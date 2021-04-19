@@ -1,6 +1,6 @@
 <!--
 //==================================================
-// Socket IO
+// Chat Log
 // TCS Simplilearn
 // Timothy Nguyen 1973441
 
@@ -18,7 +18,7 @@
     <!--Connected Socket Library-->
     <script src="/socket.io/socket.io.js">
     </script>
-    <!--Initial message when first accessing page as well as new message when button clicked on HTML-->
+    <!--New message when button clicked on HTML-->
     <script type="text/JavaScript">
         var socket=io(); function showMessage(){ let name = document.getElementById("name").value; let message = document.getElementById("messageInfo").value; let newFormat= {"name":name,"message":message}; socket.emit("chat",newFormat); }
     </script>
@@ -38,6 +38,7 @@
         <br/><br/><br/><br/><br/>
     </form>
 
+    <!--Displays Data For Name/Messages found in database-->
     <form action="/showLog" method="get">
         <input type="submit" value="Display Messages Stored In Database" />
     </form>

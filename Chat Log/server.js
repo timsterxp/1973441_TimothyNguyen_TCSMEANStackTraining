@@ -1,18 +1,20 @@
 //==================================================
-// Socket IO
+// Chat Log
 // TCS Simplilearn
 // Timothy Nguyen 1973441
 
 // Combine SocketIO With MongoDB capabilities
 //==================================================
+
+//Setting up environment variables
 let app = require("express")();
 let http = require("http").Server(app);
 let io = require("socket.io")(http);
 let url = "mongodb://localhost:27017/meanstack";
-
 let mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
+//Set up Schema
 let ChatSchema = mongoose.Schema({
     name: String,
     message: String
@@ -36,6 +38,7 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 })
 
+//Retrieves name/message in database and prints to page
 app.get("/showLog", (req, res) => {
     let tableFormat = "";
     let data = ChatModel.find().select({
