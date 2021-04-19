@@ -20,22 +20,28 @@
     </script>
     <!--Initial message when first accessing page as well as new message when button clicked on HTML-->
     <script type="text/JavaScript">
-        var socket=io(); socket.emit("chat","Welcome to the SocketIO Logging"); function showMessage(){ let name = document.getElementById("name").value; let message = document.getElementById("messageInfo").value; let newFormat= {"name":name,"message":message};
-        socket.emit("chat",newFormat); }
+        var socket=io(); function showMessage(){ let name = document.getElementById("name").value; let message = document.getElementById("messageInfo").value; let newFormat= {"name":name,"message":message}; socket.emit("chat",newFormat); }
     </script>
 </head>
 
 <body>
     <!--Create form with proper width/resizing by utilizing table-cell display-->
-    <label style="display:table-cell;">Name</label>
-    <input type="text" style="display:table-cell;" id="name" />
-    <br/>
-    <label style="display:table-cell;">Message</label>
-    <input type="text" id="messageInfo" style="display:table-cell;" />
-    <br/><br/>
-    <!--Call showMessage when clicked-->
-    <input type="button" value="Send Info" onclick="showMessage()" />
+    <form>
+        <label style="display:table-cell;">Name</label>
+        <input type="text" style="display:table-cell;" id="name" />
+        <br/>
+        <label style="display:table-cell;">Message</label>
+        <input type="text" id="messageInfo" style="display:table-cell;" />
+        <br/><br/>
+        <!--Call showMessage when clicked-->
+        <input type="button" value="Send Info" onclick="showMessage();this.form.reset()" />
+        <br/><br/><br/><br/><br/>
+    </form>
 
+    <form action="/showLog" method="get">
+        <input type="submit" value="Display Messages Stored In Database" />
+    </form>
+    <!---- <a href="/showLog">Display Messages Stored In Database</a> -->
 </body>
 
 </html>
