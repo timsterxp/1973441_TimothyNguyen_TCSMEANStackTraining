@@ -9,6 +9,11 @@ import { EmployeePageComponent } from './employee-page/employee-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { UserSigninComponent } from './user-signin/user-signin.component';
 import { AdminOrEmpSigninComponent } from './admin-or-emp-signin/admin-or-emp-signin.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { EmpSigninComponent } from './emp-signin/emp-signin.component';
+import { AdminSigninComponent } from './admin-signin/admin-signin.component';
+import { EmpHomeComponent } from './emp-home/emp-home.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { AdminOrEmpSigninComponent } from './admin-or-emp-signin/admin-or-emp-si
     EmployeePageComponent,
     UserPageComponent,
     UserSigninComponent,
-    AdminOrEmpSigninComponent
+    AdminOrEmpSigninComponent,
+    UserHomeComponent,
+    EmpSigninComponent,
+    AdminSigninComponent,
+    EmpHomeComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,

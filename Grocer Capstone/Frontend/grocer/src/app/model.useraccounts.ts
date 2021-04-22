@@ -1,0 +1,1 @@
+// I'm assuming we should use a bool/string/number for user/employee/admin to cut down on collections
