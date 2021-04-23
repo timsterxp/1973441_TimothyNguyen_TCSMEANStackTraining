@@ -2,12 +2,7 @@ pipeline {
 agent any
 tools {node js "MyNode"}
 stages {
-stage ("Move to Folder"){
-steps {
-	dir(JenkinWithNodeJS) {
-}	
-}
-}
+
 stage ("Check Version") {
 steps {
 sh "node --version"
