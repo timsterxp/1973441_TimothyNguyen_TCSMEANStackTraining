@@ -1,0 +1,33 @@
+pipeline {
+agent any
+tools {node js "MyNode"}
+stages {
+stage ("Move to Folder"){
+steps {
+	dir(JenkinWithNodeJS) {
+}	
+}
+}
+stage ("Check Version") {
+steps {
+sh "node --version"
+}
+}
+stage ("install dependencies"){
+steps{
+sh "npm --version"
+sh "npm install"
+}
+}
+stage ("Test"){
+steps {
+sh node app.js
+}
+}
+stage ("Release") {
+    steps{
+echo "Release" 
+}
+}
+}
+}
